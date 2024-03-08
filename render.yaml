@@ -3,7 +3,7 @@ services:
   name: main.py
   env: python
   buildCommand: pip install -r requirements.txt
-  startCommand: python main.py
+  startCommand: gunicorn -b :$PORT main:app
   envVars:
   - key: FLASK_ENV
     value: production
